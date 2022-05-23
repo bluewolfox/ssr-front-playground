@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useState } from "react";
+import FormInput from "./components/FormInput";
 
-function App() {
+export default function App() {
+  // const [userName, setUserName] = useState("");
+  // const userRef = useRef<HTMLInputElement>(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormInput
+        // userRef={userRef}
+        title={"UserName"}
+        placeholder="Username"
+        // setUserName={setUserName}
+        submitName={"submit"}
+        type={"text"}
+      />
+      {/* <FormInput placeholder="UserID" /> */}
+      {/* <FormInput placeholder="UserPW" /> */}
+      {/* <FormInput placeholder="UserEmail" /> */}
     </div>
   );
 }
-
-export default App;
