@@ -36,6 +36,7 @@ const FormInput = (props: FormProps) => {
     userRef,
     width,
   } = props;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // const data = new FormData(e.target as HTMLFormElement);
@@ -46,7 +47,9 @@ const FormInput = (props: FormProps) => {
     <div className="form-input">
       <form onSubmit={handleSubmit}>
         <label>{title}</label>
-        <StylesInput {...props}>{children}</StylesInput>
+        <StylesInput {...props} type={type} placeholder={placeholder}>
+          {children}
+        </StylesInput>
 
         {/* // <input
         //   //   ref={userRef}
@@ -73,14 +76,15 @@ const FormInput = (props: FormProps) => {
 export default FormInput;
 
 const StylesInput = styled.input<FormProps>`
-  ${(width) => (width ? `width: ${width}` : "")}
-  ${(height) => (height ? `height: ${height}` : "")}
-  ${(border) => (border ? `border: ${border}` : "")}
-  ${(margin) => (margin ? `margin: ${margin}` : "")}
-  ${(padding) => (padding ? `margin: ${padding}` : "")}
-${(backgroundColor) =>
-    backgroundColor ? `background-color : ${backgroundColor}` : ""}
-  ${(borderRadius) => (borderRadius ? `border-radius: ${borderRadius}` : "")}
+  ${(props) => (props.width ? `width: ${props.width}` : "")};
+  ${(props) => (props.height ? `height: ${props.height}` : "")};
+  ${(props) => (props.border ? `border: ${props.border}` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin}` : "")};
+  ${(props) => (props.padding ? `padding: ${props.padding}` : "")};
+  ${(props) =>
+    props.backgroundColor ? `background-color : ${props.backgroundColor}` : ""};
+  ${(props) =>
+    props.borderRadius ? `border-radius: ${props.borderRadius}` : ""};
 `;
 
 export { StylesInput };

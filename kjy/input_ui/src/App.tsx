@@ -13,6 +13,9 @@ export default function App() {
         placeholder="Username"
         // setUserName={setUserName}
         submitName={"submit"}
+        width="90px"
+        padding={"10px"}
+        height={"90px"}
         type={"text"}
       />
       {/* <FormInput placeholder="UserID" /> */}
