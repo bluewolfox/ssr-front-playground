@@ -4,6 +4,7 @@ import EduObj from './education/EduObj';
 import EduTypescript from './education/EduTypescript';
 import EduOperator from './education/EduOperator';
 import EduOptionalChaining from './education/EduOptionalChaining';
+import EduFragment from './education/EduFragment';
 
 export default () => (
   <div>
@@ -12,6 +13,7 @@ export default () => (
     {/* <EduTypescript /> */}
     {/* <EduOperator /> */}
     {/* <EduOptionalChaining /> */}
+    <EduFragment />
     Hello world!
   </div>
 );
