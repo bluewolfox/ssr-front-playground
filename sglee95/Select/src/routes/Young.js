@@ -6,6 +6,7 @@ import "./App.css";
 function Young(props) {
   let navigate = useNavigate();
   let { id } = useParams();
+  // 여기 이미지 어떻게 import 하는지 알려주셨는데 다시 알려주시면 감사하겠습니다.//
   const imgUrl =
     "https://github.com/magmom95/interex/blob/main/" +
     props.test[id].String +
