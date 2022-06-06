@@ -1,24 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import Array from "./study/Array";
+import ArrayAPI from "./study/ArrayAPI";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <h1>react study... ash</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Array />
+      <ArrayAPI />
     </div>
   );
 }
