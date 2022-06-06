@@ -5,6 +5,8 @@ import EduTypescript from './education/EduTypescript';
 import EduOperator from './education/EduOperator';
 import EduOptionalChaining from './education/EduOptionalChaining';
 import EduFragment from './education/EduFragment';
+import EduES2022 from './education/EduES2022';
+import EduTransition from './education/EduTransition';
 
 export default () => (
   <div>
@@ -13,7 +15,9 @@ export default () => (
     {/* <EduTypescript /> */}
     {/* <EduOperator /> */}
     {/* <EduOptionalChaining /> */}
-    <EduFragment />
+    {/* <EduFragment /> */}
+    {/* <EduES2022 /> */}
+    <EduTransition />
     Hello world!
   </div>
 );
