@@ -7,6 +7,7 @@ import EduOptionalChaining from './education/EduOptionalChaining';
 import EduFragment from './education/EduFragment';
 import EduES2022 from './education/EduES2022';
 import EduTransition from './education/EduTransition';
+import { EduInfinityLoading } from './education/EduInfinityLoading';
 
 export default () => (
   <div>
@@ -17,7 +18,8 @@ export default () => (
     {/* <EduOptionalChaining /> */}
     {/* <EduFragment /> */}
     {/* <EduES2022 /> */}
-    <EduTransition />
-    Hello world!
+    {/* <EduTransition /> */}
+    <EduInfinityLoading />
+    {/* Hello world! */}
   </div>
 );
