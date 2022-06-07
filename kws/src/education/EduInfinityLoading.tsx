@@ -22,11 +22,18 @@ export const EduInfinityLoading: React.FC = (): JSX.Element => {
     }, 500);
   };
 
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    const item = entries[0];
+  const intersectionObserver = new IntersectionObserver(
+    (entries) => {
+      const item = entries[0];
 
-    if (item.isIntersecting && !loading && 축구선수리스트.length > list.length) loadHandler(20);
-  });
+      if (item.isIntersecting && !loading && 축구선수리스트.length > list.length) loadHandler(20);
+    },
+    {
+      root: null, // document, window
+      rootMargin: '0px 0px 30px 0px',
+      threshold: 0.5,
+    }
+  );
 
   useEffect(() => {
     if (target && target.current) intersectionObserver.observe(target.current);
