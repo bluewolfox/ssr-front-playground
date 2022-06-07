@@ -26,15 +26,8 @@ const FormInput = (props: FormProps) => {
     submitName,
     title,
     type,
-    backgroundColor,
-    border,
-    borderRadius,
-    height,
-    margin,
-    padding,
     setUserName,
     userRef,
-    width,
   } = props;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -47,8 +40,8 @@ const FormInput = (props: FormProps) => {
     <div className="form-input">
       <form onSubmit={handleSubmit}>
         <label>{title}</label>
-        <StylesInput {...props} type={type} placeholder={placeholder}>
-          {children}
+        <StylesInput {...props} type={type} placeholder={placeholder} required>
+          {/* {children} */}
         </StylesInput>
 
         {/* // <input

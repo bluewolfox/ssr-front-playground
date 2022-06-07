@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     list: [
       {
-        id: 0,
+        id: 1,
         type: "지출",
         price: 3800,
         usage: "점심 식비",
@@ -56,16 +56,27 @@ class App extends Component {
 
   render() {
     const { list, keyword } = this.state;
-    const filteredList = list.filter((info) => info.usage.indexOf(keyword) !== -1);
+    const filteredList = list.filter(
+      (info) => info.usage.indexOf(keyword) !== -1
+    );
 
+    console.log(list, filteredList);
     return (
       <React.Fragment>
         <AccountBookForm onAdd={this.add} />
         <p>
-          <input placeholder="검색어를 입력하세요." onChange={this.change} value={keyword} />
+          <input
+            placeholder="검색어를 입력하세요."
+            onChange={this.change}
+            value={keyword}
+          />
         </p>
         <hr />
-        <AccountBookInfoList list={filteredList} onRemove={this.remove} onUpdate={this.update} />
+        <AccountBookInfoList
+          list={filteredList}
+          onRemove={this.remove}
+          onUpdate={this.update}
+        />
       </React.Fragment>
     );
   }

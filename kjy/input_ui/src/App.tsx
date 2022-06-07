@@ -1,6 +1,13 @@
 import React, { useRef, useState } from "react";
 import FormInput from "./components/FormInput";
 
+namespace Myconsole {
+  export function log(msg: string) {
+    console.log(msg);
+  }
+}
+Myconsole.log("My console");
+
 export default function App() {
   // const [userName, setUserName] = useState("");
   // const userRef = useRef<HTMLInputElement>(null);
@@ -13,7 +20,7 @@ export default function App() {
         placeholder="Username"
         // setUserName={setUserName}
         submitName={"submit"}
-        width="90px"
+        width={"90px"}
         padding={"10px"}
         height={"90px"}
         type={"text"}
