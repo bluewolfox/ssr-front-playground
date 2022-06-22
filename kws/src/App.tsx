@@ -8,18 +8,26 @@ import EduFragment from './education/EduFragment';
 import EduES2022 from './education/EduES2022';
 import EduTransition from './education/EduTransition';
 import { EduInfinityLoading } from './education/EduInfinityLoading';
+import { EduUseMemoCallback } from './education/EduUseMemoCallback';
+import { BFS, DFS } from './functions/index.js';
 
-export default () => (
-  <div>
-    {/* <EduObj /> */}
-    {/* <EduArr /> */}
-    {/* <EduTypescript /> */}
-    {/* <EduOperator /> */}
-    {/* <EduOptionalChaining /> */}
-    {/* <EduFragment /> */}
-    {/* <EduES2022 /> */}
-    {/* <EduTransition /> */}
-    <EduInfinityLoading />
-    {/* Hello world! */}
-  </div>
-);
+export default () => {
+  console.log(`BFS ${BFS('A')}`);
+  console.log(`DFS ${DFS('A')}`);
+
+  return (
+    <div>
+      {/* <EduObj /> */}
+      {/* <EduArr /> */}
+      {/* <EduTypescript /> */}
+      {/* <EduOperator /> */}
+      {/* <EduOptionalChaining /> */}
+      {/* <EduFragment /> */}
+      {/* <EduES2022 /> */}
+      {/* <EduTransition /> */}
+      {/* <EduInfinityLoading /> */}
+      {/* <EduUseMemoCallback /> */}
+      {/* Hello world! */}
+    </div>
+  );
+};
