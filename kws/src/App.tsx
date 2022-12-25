@@ -1,4 +1,5 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import EduArr from './education/EduArr';
 import EduObj from './education/EduObj';
 import EduTypescript from './education/EduTypescript';
@@ -10,24 +11,30 @@ import EduTransition from './education/EduTransition';
 import { EduInfinityLoading } from './education/EduInfinityLoading';
 import { EduUseMemoCallback } from './education/EduUseMemoCallback';
 import { BFS, DFS } from './functions/index.js';
+import { Query } from './components';
 
-export default () => {
-  console.log(`BFS ${BFS('A')}`);
-  console.log(`DFS ${DFS('A')}`);
+const queryClient = new QueryClient();
 
+const App: React.FC = () => {
   return (
-    <div>
-      {/* <EduObj /> */}
-      {/* <EduArr /> */}
-      {/* <EduTypescript /> */}
-      {/* <EduOperator /> */}
-      {/* <EduOptionalChaining /> */}
-      {/* <EduFragment /> */}
-      {/* <EduES2022 /> */}
-      {/* <EduTransition /> */}
-      {/* <EduInfinityLoading /> */}
-      {/* <EduUseMemoCallback /> */}
-      {/* Hello world! */}
-    </div>
+    // <div>
+    //   {/* <EduObj /> */}
+    //   {/* <EduArr /> */}
+    //   {/* <EduTypescript /> */}
+    //   {/* <EduOperator /> */}
+    //   {/* <EduOptionalChaining /> */}
+    //   {/* <EduFragment /> */}
+    //   {/* <EduES2022 /> */}
+    //   {/* <EduTransition /> */}
+    //   {/* <EduInfinityLoading /> */}
+    //   {/* <EduUseMemoCallback /> */}
+    //   {/* Hello world! */}
+    // </div>
+    <QueryClientProvider client={queryClient}>
+      <Query />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+    </QueryClientProvider>
   );
 };
+
+export default App;
