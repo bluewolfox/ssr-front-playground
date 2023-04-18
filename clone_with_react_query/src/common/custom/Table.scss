@@ -1,0 +1,121 @@
+@import 'common/scss/utils.scss';
+
+// Table
+.ant-table-wrapper {
+  &.no_border__table {
+    .ant-table {
+      .ant-table-container {
+        .ant-table-content {
+          .ant-table-thead {
+            .ant-table-cell {
+              border-left: none;
+            }
+          }
+          .ant-table-tbody {
+            .ant-table-row {
+              .ant-table-cell {
+                border-left: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ant-table {
+    border: 1px solid #dddddd;
+    border-radius: 0;
+
+    .ant-table-container {
+      border-radius: 0;
+
+      .ant-table-content {
+        table {
+          border-radius: 0;
+        }
+        .ant-table-thead {
+          border-radius: 0;
+
+          tr:first-child th:first-child {
+            border-left: none;
+          }
+
+          .ant-table-cell {
+            background-color: #f5f0ec;
+            border-left: 1px solid #dddddd;
+            border-bottom: 1px solid #dddddd;
+            border-radius: 0;
+            padding: 5px;
+            text-align: center !important;
+            letter-spacing: -0.05rem;
+          }
+        }
+
+        .ant-table-tbody {
+          .ant-table-row {
+            border-bottom: 1px solid #dddddd;
+            border-color: #dddddd;
+
+            &:nth-child(odd) {
+              .ant-table-cell {
+                background-color: #f9f9f9;
+              }
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .ant-table-cell {
+              border-left: 1px solid #dddddd;
+              border-bottom: none;
+              padding: 5px;
+              background-color: #fff;
+              vertical-align: middle;
+
+              &:first-child {
+                border-left: none;
+              }
+
+              .blue {
+                color: #0000dd;
+              }
+              .green {
+                color: green;
+              }
+              .red {
+                color: #d10000 !important;
+              }
+              .orange {
+                color: #e18700;
+              }
+              .normal {
+                color: #398694;
+              }
+              .underline {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        .ant-table-summary {
+          .ant-table-cell {
+            border-top: 1px solid #dddddd;
+            border-left: 1px solid #dddddd;
+            padding: 5px 12px;
+
+            &:first-child {
+              border-left: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ant-table-pagination.ant-pagination {
+    margin-top: 40px;
+  }
+}

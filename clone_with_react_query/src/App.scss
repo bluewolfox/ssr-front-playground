@@ -1,2 +1,7 @@
-@import "common/scss/reset";
-@import "common/scss/utils";
+@import 'common/scss/reset';
+@import 'common/scss/utils';
+@import 'common/custom/customAntd';
+
+#root {
+  height: 100vh;
+}

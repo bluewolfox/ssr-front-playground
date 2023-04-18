@@ -1,0 +1,66 @@
+@import 'common/scss/utils.scss';
+
+.simple-table-left {
+  border: 1px solid #dddddd;
+  font-size: 12px;
+  @include flex(initial, initial);
+  flex-wrap: wrap;
+
+  .row_col {
+    @include flex(initial, initial);
+    border-bottom: 1px solid #dddddd;
+
+    &:last-child {
+      border-bottom: none;
+
+      .col_label {
+        height: inherit;
+      }
+    }
+
+    .col_label {
+      font-weight: bold;
+      background-color: #f5f0ec;
+      width: 50%;
+      text-align: center;
+      border-right: 1px solid #dddddd;
+      @include flex(center, center);
+    }
+
+    .col_value {
+      height: inherit;
+      padding: 4px;
+      @include flex(center, initial);
+    }
+  }
+}
+
+.simple-table-box {
+  border: 1px solid #dddddd;
+  font-size: 12px;
+
+  .row_group {
+    @include flex(initial, initial);
+    border-bottom: 1px solid #dddddd;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .row_item {
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid #dddddd;
+      vertical-align: middle;
+      padding: 5px 10px;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &.th {
+        background-color: #f5f0ec;
+      }
+    }
+  }
+}

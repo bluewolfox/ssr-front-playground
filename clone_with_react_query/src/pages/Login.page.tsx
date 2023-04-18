@@ -1,7 +1,10 @@
-import { Form, Input } from "antd";
-import React from "react";
-import "./Login.page.scss";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { App, Button, Form, Input } from 'antd';
+import React from 'react';
+import './Login.page.scss';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useLogin } from 'queries/useLoginQuery';
+import { useNavigate } from 'react-router-dom';
+import { validator } from './rules';
 
 type T_Form = {
   userId: string;
@@ -9,12 +12,17 @@ type T_Form = {
 };
 
 export const Login_page: React.FC = (): JSX.Element => {
-  const { control, handleSubmit } = useForm<T_Form>({
-    mode: "onSubmit",
+  const navigate = useNavigate();
+  const { message } = App.useApp();
+  const { control, handleSubmit } = useForm<T_Form>({ mode: 'onSubmit' });
+
+  const { isLoading, mutate: onLogin } = useLogin(() => {
+    message.success('로그인에 성공하였습니다.');
+    navigate('/main');
   });
 
   const onSubmit: SubmitHandler<T_Form> = (data) => {
-    console.log({ data });
+    onLogin(data);
   };
   return (
     <div id="login-wrapper">
@@ -28,11 +36,23 @@ export const Login_page: React.FC = (): JSX.Element => {
                 control={control}
                 name="userId"
                 rules={{
-                  required: "아이디는 필수 입력입니다.",
+                  validate: (value) => {
+                    const { validError } = validator.excute(['EMAIL'], value);
+
+                    if (!validError) return undefined;
+                    return validError;
+                  },
+                  required: '아이디는 필수 입력입니다.',
                 }}
                 render={({ field, fieldState: { error } }) => {
                   return (
-                    <Form.Item extra={error?.message} label="아이디">
+                    <Form.Item
+                      extra={error?.message}
+                      label="아이디"
+                      labelAlign="right"
+                      colon={false}
+                      style={{ color: '#fff' }}
+                    >
                       <Input {...field} />
                     </Form.Item>
                   );
@@ -42,7 +62,7 @@ export const Login_page: React.FC = (): JSX.Element => {
                 control={control}
                 name="userPasswd"
                 rules={{
-                  required: "비밀번호는 필수 입력입니다.",
+                  required: '비밀번호는 필수 입력입니다.',
                 }}
                 render={({ field, fieldState: { error } }) => {
                   return (
@@ -52,47 +72,22 @@ export const Login_page: React.FC = (): JSX.Element => {
                   );
                 }}
               />
-              {/* <Input
-                styles={inputStyle}
-                className="login-input"
-                placeholder="Username"
-                value={state.userId}
-                onChange={(e): void => setState({ type: 'USER_ID', value: e.target.value })}
-                onBlur={
-                  (e): void => {
-                    loginErrorHandler(e.currentTarget.value as string, 'id');
-                  }
-                  // setState({ type: 'error', value: { errorId: e.target.value, errorPassword: e.target.value } })
-                }
-              />
-
-              <Input
-                type="password"
-                styles={inputStyle}
-                className="login-input"
-                placeholder="Password"
-                value={state.userPasswd}
-                onChange={(e): void => setState({ type: 'USER_PASSWORD', value: e.target.value })}
-                onBlur={(e): void => {
-                  loginErrorHandler(e.currentTarget.value as string, 'pw');
-                }}
-              />
 
               <Button
-                className="sign-btn"
-                type="submit"
-                text="Sign in"
-                loading={state.loading}
-                styles={{
+                htmlType="submit"
+                style={{
                   width: 330,
                   height: 50,
-                  radius: 7,
+                  borderRadius: 7,
                   backgroundColor: '#286B86',
+                  borderColor: '#286B86',
                   fontWeight: 600,
-                  hover: { backgroundColor: '#337996' },
-                  active: { backgroundColor: '#21627C' },
+                  color: '#fff',
                 }}
-              /> */}
+                loading={isLoading}
+              >
+                Login
+              </Button>
             </Form>
 
             <div className="login-util-field">

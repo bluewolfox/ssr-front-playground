@@ -1,4 +1,4 @@
-import { ConfigProvider, ThemeConfig } from 'antd';
+import { ConfigProvider, ThemeConfig, App as Antd_App } from 'antd';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClientProvider } from 'react-query';
@@ -28,7 +28,9 @@ root.render(
     <RecoilRoot>
       <HistoryRouter history={history}>
         <ConfigProvider locale={locale} theme={antdDefaultConfig}>
-          <App />
+          <Antd_App>
+            <App />
+          </Antd_App>
         </ConfigProvider>
       </HistoryRouter>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />

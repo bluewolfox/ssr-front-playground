@@ -1,0 +1,11 @@
+@import 'common/scss/utils.scss';
+
+.error_element {
+  position: absolute;
+  width: auto;
+  height: 20px;
+  padding: 0 10px;
+  background-color: #970707;
+  color: #fff;
+  z-index: 999;
+}

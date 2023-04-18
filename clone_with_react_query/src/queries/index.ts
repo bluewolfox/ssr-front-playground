@@ -30,7 +30,7 @@ export const queryClient = new QueryClient({
 });
 
 export const api = axios.create({
-  baseURL: '/api',
+  baseURL: '/api/v1',
   // paramsSerializer: {
   //   serialize: (paramObj) => {
   //     const params = new URLSearchParams();

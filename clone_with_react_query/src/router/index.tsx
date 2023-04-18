@@ -18,6 +18,7 @@ const Router = () => {
     { path: '/login', element: <Pages.Login_page /> },
     // 메인
     { path: '/main', element: <Pages.Main_page /> },
+    { path: '/user', element: <Pages.User_page /> },
     // 그 외의 라우터 경로는 /notFound 로 이동
     { path: '*', element: <Navigate to="/notFound" replace={false} /> },
   ]);

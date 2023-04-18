@@ -1,0 +1,61 @@
+.ant-form-item-extra {
+  position: absolute;
+  bottom: -20px;
+  line-height: 20px !important;
+  min-height: 20px !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  background-color: #7c0808;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.ant-app {
+  height: 100%;
+}
+
+// date-picker
+.ant-picker-header {
+  align-items: center;
+
+  > button {
+    line-height: 1 !important;
+  }
+
+  .ant-picker-header-view {
+    line-height: 40px;
+  }
+}
+
+// pagination
+.ant-pagination {
+  .ant-pagination-item {
+    border-radius: 4px;
+    min-width: 26px !important;
+    height: 26px !important;
+    line-height: 24px !important;
+
+    &.ant-pagination-item-active {
+      background-color: #337ab7;
+      border-color: #337ab7;
+
+      > a {
+        color: #ffffff;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+// select_options
+.ant-select-dropdown {
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: rgb(46 109 164);
+    .ant-select-item-option-content {
+      color: #ffffff;
+    }
+  }
+  .ant-select-item-option-content {
+    font-size: 11px;
+  }
+}
