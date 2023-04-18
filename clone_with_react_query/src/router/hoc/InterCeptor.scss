@@ -1,0 +1,21 @@
+@import 'common/scss/utils.scss';
+
+.modal__interceptor__wrapper {
+  .modal__basic__wrapper {
+    .modal__content__form {
+      .modal__content {
+        .text {
+          font-weight: 600;
+          font-size: 16px;
+          color: #191919;
+        }
+      }
+    }
+
+    .modal__footer {
+      .footer__cancel {
+        background: #227ab6;
+      }
+    }
+  }
+}

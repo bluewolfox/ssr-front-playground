@@ -1,0 +1,264 @@
+@import "common/scss/utils.scss";
+
+#login-wrapper {
+  @include flex(center, center);
+  width: 100%;
+  height: 100%;
+  background-color: #d3ecf9;
+  .login-content {
+    position: relative;
+    section.login-content-section {
+      @include flex(initial, space-between);
+      position: relative;
+      width: 968px;
+      height: 563px;
+      padding: 130px 105px 0;
+      border-radius: 30px 30px;
+      background: url("/assets/img/login_field_bg.png") no-repeat 0;
+      box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      .login-form-field {
+        width: 330px;
+        & > h3 {
+          height: 50px;
+          font-size: 35px;
+          font-weight: 600;
+          color: #fff;
+        }
+
+        & > p {
+          color: #fff;
+          font-size: 14px;
+          margin-top: 4px;
+        }
+
+        form {
+          width: 330px;
+          height: 189px;
+          margin-top: 25px;
+          position: relative;
+          .sign-btn {
+            div {
+              font-size: 14px;
+            }
+          }
+
+          .login-input {
+            line-height: 50px;
+
+            .input__pw__lock__icon {
+              @include flex(center, center);
+
+              &.open {
+                &::before {
+                  display: block;
+                  content: "";
+                  width: 15px;
+                  height: 13px;
+                  background-position: -822px -24px;
+                }
+              }
+
+              &::before {
+                display: block;
+                content: "";
+                width: 15px;
+                height: 13px;
+                background-image: url($imgsrc);
+                background-repeat: no-repeat;
+                background-position: -793px -24px;
+              }
+            }
+          }
+
+          .login__validation__wrapper {
+            position: absolute;
+            .validation__inner {
+              @include flex(center, center);
+              background: #1d2e38;
+              position: relative;
+              top: -48px;
+              left: 340px;
+              padding: 7px 10px;
+
+              .validation__tooltip__text {
+                font-weight: 400;
+                font-size: 11px;
+                color: #f1fbfe;
+                margin-left: 4px;
+              }
+
+              &:after {
+                content: " ";
+                width: 0;
+                height: 0;
+                top: 9px;
+                left: -14px;
+                position: absolute;
+                border-bottom: 4px solid transparent;
+                border-top: 4px solid transparent;
+                border-left: 7px solid transparent;
+                border-right: 7px solid #1d2e38;
+              }
+
+              .icon__validation__tooltip {
+                background: url($imgsrc) no-repeat -462px -639px;
+                width: 12px;
+                height: 12px;
+              }
+            }
+          }
+        }
+
+        .login-util-field {
+          @include flex(center, initial);
+          margin-bottom: 20px;
+
+          .id__save__wrapper {
+            margin-right: 20px;
+
+            .login-checkbox {
+              padding: 0;
+              font-weight: 300;
+              .ssr__checkbox {
+                @include flex(center, center);
+                border-radius: 4px;
+                background: #286b86;
+                border: 0;
+                .ssr-checkbox-check-icon {
+                  background: url($imgsrc) no-repeat -760px -60px;
+                  width: 12px;
+                  height: 9px;
+                }
+              }
+            }
+
+            .ssr__checkbox__label {
+              margin-left: 8px;
+            }
+          }
+
+          .right-wrap {
+            @include flex(center, center);
+
+            .id__save__wrapper {
+              height: 12px;
+              border: 1px solid #eff4f8;
+              // margin: 0 10px;
+              margin: 0px;
+              // &:first-child {
+              // margin-right: 20px;
+              // margin-left: 20px;
+              // }
+              margin-right: 20px;
+
+              &.senderSetting {
+                margin-right: 15px;
+              }
+            }
+
+            .find-pw {
+              // width: 109px;
+              // width: auto;
+              padding-right: 20px;
+
+              &.disabled {
+                padding: 0;
+              }
+            }
+
+            .agent-download {
+              margin-left: 20px;
+            }
+            a {
+              // width: 115px;
+              text-align: center;
+              color: #eff4f8;
+              font-size: 12px;
+              font-weight: 400;
+              transition: color 0.1s;
+              // padding: 0 2px;
+
+              &:hover {
+                color: #c2ebff;
+              }
+            }
+
+            .find__pw__wrapper {
+              @include flex(center, center);
+              margin-right: 10px;
+              // width: 109px;
+              .find-pw {
+                width: 68px;
+                &.disabled {
+                  color: #b9b9b9;
+                  font-weight: 400;
+                  font-size: 12px;
+                }
+              }
+
+              .tool_tip__find__pw__text__wrapper {
+                font-weight: 400;
+                font-size: 11px;
+              }
+
+              .icon__find__pw {
+                background: url($imgsrc) no-repeat -670px -25px;
+                width: 12px;
+                height: 12px;
+                margin-left: 3px;
+              }
+            }
+          }
+        }
+
+        .metieye__warning__icon {
+          span {
+            font-size: 12px;
+            color: #fff;
+          }
+        }
+      }
+
+      i.main-logo {
+        position: absolute;
+        width: 186px;
+        height: 107px;
+        top: 235px;
+        right: 94px;
+        background-image: url("/assets/img/logo.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 0 0;
+      }
+    }
+
+    .browser__warning {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      bottom: -66px;
+      left: 0;
+      background-color: #ffffff;
+      box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.08);
+
+      .metieye__notice {
+        color: #286b86;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+.ssr__tooltip__root {
+  .tool_tip__find__pw__text__wrapper {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 17px;
+  }
+}
