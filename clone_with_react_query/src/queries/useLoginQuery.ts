@@ -1,7 +1,6 @@
 import { M_Global } from 'models/global';
-import { Any } from 'models/index.model';
 import { api } from 'queries';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useSetRecoilState } from 'recoil';
 import { userRecoilState } from 'state';
 
@@ -26,16 +25,14 @@ export const useGetLoginInfo = (enabled: boolean) => {
 
 /** 로그인 */
 export const useLogin = (onSuccess: () => void) => {
+  const queryClient = useQueryClient();
   const fetch = (args: { userId: string; userPasswd: string }) => api.post('loginCheck', args);
 
   return useMutation({
     mutationFn: fetch,
-    onSuccess,
-    onError: (error) => {
-      console.log(error);
-
-      const ErrorMessage = (error as Any)?.message;
-      //
+    onSuccess: () => {
+      onSuccess();
+      queryClient.invalidateQueries('user_list');
     },
   });
 };

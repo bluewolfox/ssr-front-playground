@@ -37,8 +37,7 @@ export const Login_page: React.FC = (): JSX.Element => {
                 name="userId"
                 rules={{
                   validate: (value) => {
-                    const { validError } = validator.excute(['EMAIL'], value);
-
+                    const { validError } = validator.excute(['ID'], value);
                     if (!validError) return undefined;
                     return validError;
                   },
@@ -66,7 +65,7 @@ export const Login_page: React.FC = (): JSX.Element => {
                 }}
                 render={({ field, fieldState: { error } }) => {
                   return (
-                    <Form.Item extra={error?.message} label="비밀번호">
+                    <Form.Item extra={error?.message} colon={false} label="비밀번호">
                       <Input {...field} type="password" />
                     </Form.Item>
                   );
