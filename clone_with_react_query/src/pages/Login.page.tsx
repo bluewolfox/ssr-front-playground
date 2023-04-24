@@ -16,10 +16,15 @@ export const Login_page: React.FC = (): JSX.Element => {
   const { message } = App.useApp();
   const { control, handleSubmit } = useForm<T_Form>({ mode: 'onSubmit' });
 
-  const { isLoading, mutate: onLogin } = useLogin(() => {
-    message.success('로그인에 성공하였습니다.');
-    navigate('/main');
-  });
+  const { isLoading, mutate: onLogin } = useLogin(
+    () => {
+      message.success('로그인에 성공하였습니다.');
+      navigate('/main');
+    },
+    () => {
+      message.error('로그인에 실패했습니다.');
+    }
+  );
 
   const onSubmit: SubmitHandler<T_Form> = (data) => {
     onLogin(data);

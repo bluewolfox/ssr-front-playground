@@ -1,4 +1,15 @@
 @import 'common/scss/utils.scss';
 
 #user {
+  @include flex(initial, initial);
+
+  center {
+    width: 100%;
+    padding: 10% 10%;
+
+    .filter {
+      @include flex(initial, initial);
+      margin-bottom: 10px;
+    }
+  }
 }

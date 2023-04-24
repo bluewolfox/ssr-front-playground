@@ -1,34 +1,28 @@
 import { Button } from 'antd';
-import { useGetLoginInfo } from 'queries/useLoginQuery';
-import React, { useEffect, useState } from 'react';
-import { useQueryClient } from 'react-query';
-
-const Child = () => {
-  const queryClient = useQueryClient();
-
-  const data = queryClient.getQueryData('checkLogin');
-  console.log(data);
-
-  return <>{JSON.stringify(data)}</>;
-};
+import { deleteCookie } from 'common/functions/cookie';
+import { useGetConfig } from 'queries/useConfigQuery';
+import { useGetLoginfo } from 'queries/useLoginQuery';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Main_page: React.FC = (): JSX.Element => {
-  const [mount, setmount] = useState(false);
+  const navigate = useNavigate();
+  useGetConfig();
+  const { isFetching, isLoading, refetch } = useGetLoginfo();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setmount(true);
-    }, 5000);
-  }, []);
-
-  const { isFetching, isLoading, refetch } = useGetLoginInfo(mount);
+  const onLogout = () => {
+    deleteCookie('accessToken');
+    deleteCookie('refreshToken');
+    navigate('/');
+  };
 
   return (
     <div>
-      {isFetching && <Button>isFetching</Button>}
-      {isLoading && <Button>isLoading</Button>}
+      <Button loading={isFetching}>isFetching</Button>
+      <Button loading={isLoading}>isLoading</Button>
       <Button onClick={() => refetch()}>refetch</Button>
-      Main.page
+      <Button onClick={onLogout}>logout</Button>
+      <Button onClick={() => navigate('/user')}>user</Button>
     </div>
   );
 };

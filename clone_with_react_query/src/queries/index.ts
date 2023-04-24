@@ -1,7 +1,8 @@
 import { QueryClient } from 'react-query';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { getCookie } from '../common/functions/cookie';
+import history from 'common/history';
+import { deleteCookie, getCookie } from '../common/functions/cookie';
 
 export type T_JWTDecodeToken = {
   exp: number;
@@ -66,3 +67,20 @@ api.interceptors.request.use((config) => {
 
   return newConfig;
 });
+
+api.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    const accessToken = getCookie('accessToken');
+    const refreshToken = getCookie('refreshToken');
+
+    if (err.response.data.statusCode === 401) {
+      deleteCookie('accessToken');
+      deleteCookie('refreshToken');
+      history.push('/');
+    }
+
+    if (!accessToken || !refreshToken) history.push('/');
+    return Promise.reject(err);
+  }
+);
